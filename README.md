@@ -2,44 +2,9 @@ This repo (RepoA) was created to demenstrate an issue I ran into after using git
 
 **RepoA** = A new Git repo created with a single file. This file.
 
-**RepoB** = An existing repo on Github.com (https://github.com/BradLarson/GPUImage.git) with a useful amount of history to demonstrate the issue described above.
+**RepoB** = An existing repo on Github.com <https://github.com/BradLarson/GPUImage.git> with a useful amount of history to demonstrate the issue described above.
 
-
-**Example one; as described in the git book/manual @ (**http://git-scm.com/book/ch6-7.html**)**
-
-    ~ ❯ mkdir RepoA
-    ~ ❯ cd RepoA 
-    RepoA ❯ ls
-    RepoA ❯ git init
-    Initialized empty Git repository in /Users/sean/RepoA/.git/
-    RepoA git:master ❯ mate README.md 
-    RepoA git:master ❯ git add README.md 
-    RepoA git:master ❯ git commit -m "Initial commit"
-    [master (root-commit) 341d63f] Initial commit
-     1 file changed, 3 insertions(+)
-     create mode 100644 README.md
-
-    RepoA git:master ❯ git log README.md
-
-    commit 341d63fb5f5417e42892f492e25af1b2ada6b00b
-    Author: Sean Roehnelt <s@aro.com>
-    Date:   Thu Dec 6 10:00:15 2012 -0800
-
-        Initial commit
-
-    RepoA git:master ❯ git remote add -f RepoB https://github.com/BradLarson/GPUImage.git
-    Updating RepoB
-    warning: no common commits
-    remote: Counting objects: 5310, done.
-    remote: Compressing objects: 100% (1473/1473), done.
-    remote: Total 5310 (delta 3951), reused 4928 (delta 3634)
-    Receiving objects: 100% (5310/5310), 8.64 MiB | 2.54 MiB/s, done.
-    Resolving deltas: 100% (3951/3951), done.
-    From https://github.com/BradLarson/GPUImage
-     * [new branch]      master     -> RepoB/master
-
-
-**Example two; as described on github.com @ (**https://help.github.com/articles/working-with-subtree-merge**)**
+##Example one; as described on github.com @ <https://help.github.com/articles/working-with-subtree-merge>
 
     ~ ❯ mkdir RepoA
     ~ ❯ cd RepoA 
@@ -119,19 +84,75 @@ This repo (RepoA) was created to demenstrate an issue I ran into after using git
 
 ## PROBLEMS
 
-### git log Frameworks/RepoB/License.txt 
-
     ~ ❯ cd shiny-octo-dangerzone
     shiny-octo-dangerzone git:master ❯ 
-    shiny-octo-dangerzone git:master ❯ git log Frameworks/RepoB/License.txt 
+    
+### `git log -- Frameworks/RepoB/License.txt`
+
+    shiny-octo-dangerzone git:master ❯ git log -- Frameworks/RepoB/License.txt
     commit 213259db595c1b852429b20bf3c6d633f362e67d
     Merge: 341d63f 1e0e621
     Author: Sean Roehnelt <s@aro.com>
     Date:   Thu Dec 6 10:51:32 2012 -0800
 
-      Subtree merged GPUImage (https://github.com/BradLarson/GPUImage.git) at repo path 'Frameworks/RepoB'
-    shiny-octo-dangerzone git:master ❯ git log --follow Frameworks/RepoB/License.txt
+        Subtree merged GPUImage (https://github.com/BradLarson/GPUImage.git) at repo path 'Frameworks/RepoB'
+
+### `git log --follow -- Frameworks/RepoB/License.txt`
     shiny-octo-dangerzone git:master ❯ git log --follow -- Frameworks/RepoB/License.txt
+    shiny-octo-dangerzone git:master ❯
+
+### `git log --follow -- License.txt` (note: License.txt is only @ Frameworks/RepoB/License.txt)
+    shiny-octo-dangerzone git:master ❯ git log --follow -- License.txt
+    commit 84061527fd590d35cd3e7d2e6c4d65b7e35fe74a
+    Author: Jake Gundersen <fattjake@gmail.com>
+    Date:   Wed May 2 16:04:59 2012 -0600
+
+        Replaced everything with a copy from the parent project
     
-### git log README.md
-    
+        Had some corruption I couldn't track down
+
+    commit d1d3586732797d3ca2c41091328b6166b38974ba
+    Author: Brad Larson <larson@sunsetlakesoftware.com>
+    Date:   Sat Mar 31 22:42:22 2012 -0500
+
+        Fixed the sizing issues I was having with the still photo capture, and fixed the preview input on iOS 4.0. The still camera is now functional on every device but th
+
+    commit 7662a0bbad62d7fb5b9192f18fce5bb2f9c019bd
+    Author: Brad Larson <larson@sunsetlakesoftware.com>
+    Date:   Tue Feb 28 08:41:21 2012 -0600
+
+        Fixed a couple of compilation issues with the project. Still working on the video recording.
+    [more]
+
+##Example two; as described in the git book/manual @ <http://git-scm.com/book/ch6-7.html>
+
+    ~ ❯ mkdir RepoA
+    ~ ❯ cd RepoA 
+    RepoA ❯ ls
+    RepoA ❯ git init
+    Initialized empty Git repository in /Users/sean/RepoA/.git/
+    RepoA git:master ❯ mate README.md 
+    RepoA git:master ❯ git add README.md 
+    RepoA git:master ❯ git commit -m "Initial commit"
+    [master (root-commit) 341d63f] Initial commit
+     1 file changed, 3 insertions(+)
+     create mode 100644 README.md
+
+    RepoA git:master ❯ git log README.md
+
+    commit 341d63fb5f5417e42892f492e25af1b2ada6b00b
+    Author: Sean Roehnelt <s@aro.com>
+    Date:   Thu Dec 6 10:00:15 2012 -0800
+
+        Initial commit
+
+    RepoA git:master ❯ git remote add -f RepoB https://github.com/BradLarson/GPUImage.git
+    Updating RepoB
+    warning: no common commits
+    remote: Counting objects: 5310, done.
+    remote: Compressing objects: 100% (1473/1473), done.
+    remote: Total 5310 (delta 3951), reused 4928 (delta 3634)
+    Receiving objects: 100% (5310/5310), 8.64 MiB | 2.54 MiB/s, done.
+    Resolving deltas: 100% (3951/3951), done.
+    From https://github.com/BradLarson/GPUImage
+     * [new branch]      master     -> RepoB/master
