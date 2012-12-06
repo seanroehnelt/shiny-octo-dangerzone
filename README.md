@@ -72,4 +72,35 @@ This repo (RepoA) was created to demenstrate an issue I ran into after using git
     From https://github.com/BradLarson/GPUImage
      * [new branch]      master     -> RepoB/master
 
-     
+    RepoA git:master ❯ git merge -s ours --no-commit RepoB/master
+    Automatic merge went well; stopped before committing as requested
+    
+    RepoA git:master ❯ git read-tree --prefix=Frameworks/RepoB/ -u RepoB/master
+    
+    RepoA git:master ❯ git commit -m "Subtree merged GPUImage (https://github.com/BradLarson/GPUImage.git) at repo path 'Frameworks/RepoB'"
+    [master 213259d] Subtree merged GPUImage (https://github.com/BradLarson/GPUImage.git) at repo path 'Frameworks/RepoB'
+    
+    RepoA git:master ❯ git remote add origin git@github.com:seanroehnelt/shiny-octo-dangerzone.git
+    RepoA git:master ❯ git push -u origin master
+    Host key fingerprint is [snip]
+    ...[/snip]
+
+    Counting objects: 5317, done.
+    Delta compression using up to 4 threads.
+    Compressing objects: 100% (1161/1161), done.
+    Writing objects: 100% (5317/5317), 8.64 MiB | 267 KiB/s, done.
+    Total 5317 (delta 3952), reused 5310 (delta 3951)
+    To git@github.com:seanroehnelt/shiny-octo-dangerzone.git
+     * [new branch]      master -> master
+    Branch master set up to track remote branch master from origin.
+    
+    RepoA git:master ❯ cd
+    ~ ❯ git clone git@github.com:seanroehnelt/shiny-octo-dangerzone.git
+    Cloning into 'shiny-octo-dangerzone'...
+    [snip]
+    remote: Counting objects: 5317, done.
+    remote: Compressing objects: 100% (1160/1160), done.
+    remote: Total 5317 (delta 3952), reused 5317 (delta 3952)
+    Receiving objects: 100% (5317/5317), 8.64 MiB | 2.76 MiB/s, done.
+    Resolving deltas: 100% (3952/3952), done.
+    
