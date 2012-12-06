@@ -83,8 +83,7 @@ This repo (RepoA) was created to demenstrate an issue I ran into after using git
     RepoA git:master ❯ git remote add origin git@github.com:seanroehnelt/shiny-octo-dangerzone.git
     RepoA git:master ❯ git push -u origin master
     Host key fingerprint is [snip]
-    ...[/snip]
-
+    [snip]
     Counting objects: 5317, done.
     Delta compression using up to 4 threads.
     Compressing objects: 100% (1161/1161), done.
@@ -93,6 +92,20 @@ This repo (RepoA) was created to demenstrate an issue I ran into after using git
     To git@github.com:seanroehnelt/shiny-octo-dangerzone.git
      * [new branch]      master -> master
     Branch master set up to track remote branch master from origin.
+    
+    RepoA git:master ❯ git add README.md                                                                                                                                  ✹
+    RepoA git:master ❯ git commit -m "Add info to README.md file in @ RepoA/README.md"                                                                                    ✚
+    [master f8b2568] Add info to README.md file in @ RepoA/README.md
+     1 file changed, 32 insertions(+), 1 deletion(-)
+    RepoA git:master ❯ git push
+    [snip]
+    Counting objects: 5, done.
+    Delta compression using up to 4 threads.
+    Compressing objects: 100% (3/3), done.
+    Writing objects: 100% (3/3), 897 bytes, done.
+    Total 3 (delta 1), reused 0 (delta 0)
+    To git@github.com:seanroehnelt/shiny-octo-dangerzone.git
+       213259d..f8b2568  master -> master
     
     RepoA git:master ❯ cd
     ~ ❯ git clone git@github.com:seanroehnelt/shiny-octo-dangerzone.git
