@@ -1,8 +1,8 @@
-This repo (RepoA) was created to demenstrate an issue I ran into after using git to merge a second repo (RepoB) into a specific subdirectory of a primary repo (RepoA) using Git.
+This repo (RepoA) was created to demenstrate a issue with `git log` I ran into after using git to merge a second repo (RepoB) into a specific subdirectory of a primary repo (RepoA) using Git.
 
 **RepoA** = A new Git repo created with a single file. This file.
 
-**RepoB** = An existing repo on Github.com <https://github.com/BradLarson/GPUImage.git> with a useful amount of history to demonstrate the issue described above.
+**RepoB** = An existing repo on Github.com <https://github.com/BradLarson/GPUImage.git> with a useful amount of history to demonstrate the issues with `git log` on files merged into a subpath
 
 ##Example one; as described on github.com @ <https://help.github.com/articles/working-with-subtree-merge>
 
