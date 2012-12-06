@@ -93,8 +93,8 @@ This repo (RepoA) was created to demenstrate an issue I ran into after using git
      * [new branch]      master -> master
     Branch master set up to track remote branch master from origin.
     
-    RepoA git:master ❯ git add README.md                                                                                                                                  ✹
-    RepoA git:master ❯ git commit -m "Add info to README.md file in @ RepoA/README.md"                                                                                    ✚
+    RepoA git:master ❯ git add README.md
+    RepoA git:master ❯ git commit -m "Add info to README.md file in @ RepoA/README.md"
     [master f8b2568] Add info to README.md file in @ RepoA/README.md
      1 file changed, 32 insertions(+), 1 deletion(-)
     RepoA git:master ❯ git push
@@ -116,4 +116,22 @@ This repo (RepoA) was created to demenstrate an issue I ran into after using git
     remote: Total 5317 (delta 3952), reused 5317 (delta 3952)
     Receiving objects: 100% (5317/5317), 8.64 MiB | 2.76 MiB/s, done.
     Resolving deltas: 100% (3952/3952), done.
+
+## PROBLEMS
+
+### git log Frameworks/RepoB/License.txt 
+
+    ~ ❯ cd shiny-octo-dangerzone
+    shiny-octo-dangerzone git:master ❯ 
+    shiny-octo-dangerzone git:master ❯ git log Frameworks/RepoB/License.txt 
+    commit 213259db595c1b852429b20bf3c6d633f362e67d
+    Merge: 341d63f 1e0e621
+    Author: Sean Roehnelt <s@aro.com>
+    Date:   Thu Dec 6 10:51:32 2012 -0800
+
+      Subtree merged GPUImage (https://github.com/BradLarson/GPUImage.git) at repo path 'Frameworks/RepoB'
+    shiny-octo-dangerzone git:master ❯ git log --follow Frameworks/RepoB/License.txt
+    shiny-octo-dangerzone git:master ❯ git log --follow -- Frameworks/RepoB/License.txt
+    
+### git log README.md
     
